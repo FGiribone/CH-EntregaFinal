@@ -34,9 +34,9 @@ class Producto extends Categoria{
     }
 
     mostrarCodigo(){
-    console.log('Descripción: ${this.nombre}');
-    console.log('precio: ${this.precio}');
-    console.log('codigo: ${this.codigo}');
+    console.log(`Descripción: ${this.descripcion}`);
+    console.log(`precio: ${this.precio}`);
+    console.log(`codigo: ${this.codigo}`);
     }
 
 }
