@@ -1,0 +1,83 @@
+[
+  {
+    "idCategoria": 1,
+    "nombreCategoria": "Cosmetica",
+    "codigo": 1,
+    "descripcion": "Crema 1",
+    "precio": 899.99,
+    "stock": 100,
+    "urlImagen": "./Image/ImgProductos/1.jpeg"
+  },
+  {
+    "idCategoria": 1,
+    "nombreCategoria": "Cosmetica",
+    "codigo": 2,
+    "descripcion": "Crema 2",
+    "precio": 1499.99,
+    "stock": 100,
+    "urlImagen": "./Image/ImgProductos/2.jpeg"
+  }, 
+  {
+    "idCategoria": 1,
+    "nombreCategoria": "Cosmetica",
+    "codigo": 3,
+    "descripcion": "Crema 3",
+    "precio": 2999.99,
+    "stock": 100,
+    "urlImagen": "./Image/ImgProductos/3.jpeg"
+  }, 
+  {
+    "idCategoria": 2,
+    "nombreCategoria": "Indumentaria",
+    "codigo": 4,
+    "descripcion": "Anillos 1",
+    "precio": 899.99,
+    "stock": 100,
+    "urlImagen": "./Image/ImgProductos/4.jpeg"
+  }, 
+  {
+    "idCategoria": 2,
+    "nombreCategoria": "Indumentaria",
+    "codigo": 5,
+    "descripcion": "Anillos 2",
+    "precio": 899.99,
+    "stock": 100,
+    "urlImagen": "./Image/ImgProductos/5.jpeg"
+  }, 
+  {
+    "idCategoria": 2,
+    "nombreCategoria": "Indumentaria",
+    "codigo": 6,
+    "descripcion": "Anillos 3",
+    "precio": 899.99,
+    "stock": 100,
+    "urlImagen": "./Image/ImgProductos/6.jpeg"
+  }, 
+  {
+    "idCategoria": 2,
+    "nombreCategoria": "Indumentaria",
+    "codigo": 7,
+    "descripcion": "PANTALON",
+    "precio": 11999.99,
+    "stock": 100,
+    "urlImagen": "./Image/ImgProductos/7.jpeg"
+  }, 
+  {
+    "idCategoria": 2,
+    "nombreCategoria": "Indumentaria",
+    "codigo": 8,
+    "descripcion": "REMERA",
+    "precio": 5999.99,
+    "stock": 100,
+    "urlImagen": "./Image/ImgProductos/8.jpeg"
+  },
+  {
+    "idCategoria": 3,
+    "nombreCategoria": "Hogar",
+    "codigo": 9,
+    "descripcion": "SET DE ESCOBA",
+    "precio": 7999.99,
+    "stock": 99,
+    "urlImagen": "./Image/ImgProductos/9.jpeg"
+  }
+]

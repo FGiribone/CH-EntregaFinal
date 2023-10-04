@@ -50,19 +50,19 @@ class Estructura{
 
     crearArchivoXLSX(nombreArchivo, codigos) {
     // Crear un objeto de libro de trabajo de Excel
-    var workbook = XLSX.utils.book_new();
+    let workbook = XLSX.utils.book_new();
     
     // Crear una hoja de trabajo
-    var hojaDeTrabajo = XLSX.utils.json_to_sheet(codigos);
+    let hojaDeTrabajo = XLSX.utils.json_to_sheet(codigos);
     
     // Agregar la hoja de trabajo al libro de trabajo
     XLSX.utils.book_append_sheet(workbook, hojaDeTrabajo, "MiHojaDeTrabajo");
     
     // Convertir el libro de trabajo a una matriz de bytes
-    var libroDeTrabajoComoArrayBuffer = XLSX.write(workbook, { bookType: 'xlsx', type: 'array' });
+    let libroDeTrabajoComoArrayBuffer = XLSX.write(workbook, { bookType: 'xlsx', type: 'array' });
     
     // Crear un objeto Blob a partir del array de bytes
-    var blob = new Blob([libroDeTrabajoComoArrayBuffer], { type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' });
+    let blob = new Blob([libroDeTrabajoComoArrayBuffer], { type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' });
     
     // Guardar el archivo con FileSaver.js
     saveAs(blob, nombreArchivo + ".xlsx");

@@ -1,8 +1,8 @@
 class Producto extends Categoria{
-    constructor(idCategoria,nombreCategoria,descripcion,codigo,precio,stock,urlImagen){
+    constructor(idCategoria,nombreCategoria,codigo,descripcion,precio,stock,urlImagen){
         super(idCategoria,nombreCategoria);
-        this.descripcion = descripcion;
         this.codigo = codigo;
+        this.descripcion = descripcion;
         this.precio = precio;
         this.stock = stock;
         this.urlimagen = urlImagen;

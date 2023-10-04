@@ -1,0 +1,16 @@
+/***********************************************
+        ESTILOS MENSAJES DE ERROR
+/***********************************************/
+
+.error {
+        color: red;
+        font-size: 12px;
+}
+
+.valid {
+        color: green;
+}
+    
+    .invalid {
+        color: red;
+}
