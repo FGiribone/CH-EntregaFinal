@@ -30,37 +30,26 @@ fetch("https://dolarapi.com/v1/dolares/mayorista")
     .catch(error => console.error('Error: ', error));
 
 
-function actualizarCuadro(id, data) {
-    const cuadro = document.getElementById(id);
-    cuadro.style.display = 'block';
 
-    // Verifico los horarios de los mercados financieros, se puede ajustar
-    const ahora = new Date();
-    const hora = ahora.getHours(); 
-    const mensajeElement = cuadro.querySelector(`#${id}-mensaje`);
-    
-    if (hora < 9 || hora >= 17) {
-        cuadro.querySelector(`#${id}-compra`).textContent = "";
-        cuadro.querySelector(`#${id}-venta`).textContent = "";
-        cuadro.querySelector(`#${id}-fecha`).textContent = "";
-        mensajeElement.textContent = "Datos disponibles de 9 a 17:00";
-        mensajeElement.style.fontWeight = "bold";
-    } else {
+    function actualizarCuadro(id, data) {
+        const cuadro = document.getElementById(id);
+        cuadro.style.display = 'block';
+        
+        const mensajeElement = cuadro.querySelector(`#${id}-mensaje`);
         cuadro.querySelector(`#${id}-compra`).textContent = `Compra: ${data.compra}`;
         cuadro.querySelector(`#${id}-venta`).textContent = `Venta: ${data.venta}`;
         cuadro.querySelector(`#${id}-fecha`).textContent = `Fecha de Actualización: ${formatearFecha(data.fechaActualizacion)}`;
         mensajeElement.textContent = " ";
         mensajeElement.style.fontWeight = "normal";
     }
-}
-
-function formatearFecha(fecha) {
-    const options = {
-        year: 'numeric',
-        month: 'numeric',
-        day: 'numeric',
-        hour: '2-digit',
-        minute: '2-digit'
-    };
-    return new Date(fecha).toLocaleDateString('es-AR', options);
-}
+    
+    function formatearFecha(fecha) {
+        const options = {
+            year: 'numeric',
+            month: 'numeric',
+            day: 'numeric',
+            hour: '2-digit',
+            minute: '2-digit'
+        };
+        return new Date(fecha).toLocaleDateString('es-AR', options);
+    }
