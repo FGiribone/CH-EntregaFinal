@@ -1,37 +1,28 @@
-// Selección de elementos usando querySelector
 const formulario = document.querySelector("#form");
 const botonValidar = document.querySelector("#botonValidar");
 botonValidar.addEventListener("click", validarFormulario);
 password1.addEventListener("input", validarContraseñas);
 password2.addEventListener("input", validarContraseñas);
 
-// Función de validación del formulario
-
 function validarFormulario() {
-    event.preventDefault(); // evito el envio del formulario automaticamente
+    event.preventDefault();
 
     // variable de control de flujo
     okFormulario = true;
 
     okFormulario = validarCamposVacios();
 
-    console.log("valor de validación de vuelto por validarCamposVacios()" + okFormulario)
-
     if (okFormulario) {
         okFormulario = validarCorreoElectronico();
     }
 
-    console.log("valor de validación de vuelto por validarCorreoElectronico()" + okFormulario)
-
     if (okFormulario) {
         okFormulario = validarAreaYTelefono();
     }
-    console.log("valor de validación de vuelto por validarAreaYTelefono()" + okFormulario)
 
     if (okFormulario) {
         okFormulario = validarContraseñas();
     }
-    console.log("valor de validación de vuelto por validarContraseñas()" + okFormulario)
 
     if (okFormulario) {
         nuevoCliente();
@@ -48,7 +39,6 @@ function validarCamposVacios() {
     const password1 = document.querySelector("#password1");
     const password2 = document.querySelector("#password2");
 
-    // creo 2 arrays para validar cada campo y menjar así los mensajes de error 
     const campos = [nombre, apellido, email, areaTelefono, telefono, password1, password2];
     const camposError = [
         document.querySelector("#campoErrorNombre"),
@@ -75,17 +65,13 @@ function validarCorreoElectronico() {
     validacionEmail = true;
     const emailInput = document.querySelector("#email");
     const campoErrorEmail = document.querySelector("#campoErrorEmail");
-    /*Expresión regular validación email */
     const emailRegex = /^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i;
-    // limpio cualquier mensaje anterior
     campoErrorEmail.textContent = "";
 
     if (emailRegex.test(emailInput.value)) {
-        // El email es válido
-        campoErrorEmail.textContent = ""; // Borra cualquier mensaje de error
+        campoErrorEmail.textContent = "";
         return true;
     } else {
-        // El email es incorrecto
         campoErrorEmail.textContent = "Email incorrecto, formato deseado nombredeusuario@dominio.com"; // Muestra un mensaje de error
         validacionEmail = false;
         return false;
@@ -109,7 +95,6 @@ function validarAreaYTelefono() {
         campoAreaTelefono.textContent = "El área debe tener al menos 2 dígitos";
         validacionTelefono = false;
     }
-    // Valido campo "telefono"
     if (telefonoInput.value.length < 8) {
         campoTelefono.textContent = "El telefono debe tener como minimo 8 digitos ";
         validacionTelefono = false;
@@ -164,7 +149,6 @@ function validarContraseñas() {
         isInvalid = true;
     }
 
-    // Validación de espacios en blanco
     const blankElement = document.querySelector("#blank");
     if (isInvalid) {
         blankElement.classList.remove("valid");
@@ -173,7 +157,7 @@ function validarContraseñas() {
         blankElement.classList.remove("invalid");
         blankElement.classList.add("valid");
     }
-    return !isInvalid; // Devuelve true si no hay errores, false si hay algún error
+    return !isInvalid;
 }
 
 function nuevoCliente() {
@@ -185,10 +169,7 @@ function nuevoCliente() {
     const password = document.querySelector("#password1").value;
 
     const nuevoCliente = new Cliente(null, nombre, apellido, email, areaTelefono, telefono, password);
-    // Ahora, puedes guardar esta instancia en un arreglo de clientes
     nuevoCliente.grabarClientesEnStorage(nuevoCliente);
-    // observo los datos internos
     console.log(nuevoCliente.toString());
-    // muestro mensaje al cliente
     nuevoCliente.mostrarDatosAlCliente();
 }
