@@ -7,91 +7,126 @@
   <link rel="stylesheet" type="text/css" href="/css/style.css">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
-  <link rel="STYLESHEET" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
-    integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
-  <script lang="javascript" src="/Libraries/xlsx.mini.min.js"></script>
-  <script lang="javascript" src="/Libraries/FileSaver.js/dist/FileSaver.min.js"></script>
+  <script src="https://kit.fontawesome.com/594787cf49.js" crossorigin="anonymous"></script>
   <script src="/Clases/Categoria.js"></script>
   <script src="/Clases/Producto.js"></script>
-  <title>Primera entrega</title>
+  <title> New World - Home</title>
 </head>
 
-<header>
-  <h1>New world <i class="fas fa-globe-americas"></i></h1>
-  <nav>
-    <ul class="enlaces-menu">
-      <li><a class="link" href=index.html>Home</a></li>
-      <li><a class="link" href=index.html>Cargar Pedido</a></li>
-      <li><a class="link" href=index.html>Regístrese</a></li>
-    </ul>
-  </nav>
-</header>
-
-<p class="intro">
-  New World
-</p>
-
-<div class="container-iframe">
-  <iframe class="iframe" src="https://www.youtube.com/" allowfullscreen></iframe>
-</div>
-
 <body class="body-main">
+
+  <header>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="container-fluid">
+        <button class="navbar-toggler" type="button" data-mdb-toggle="collapse"
+          data-mdb-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+          aria-label="Toggle navigation">
+          <i class="fas fa-bars"></i>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <a class="navbar-brand mt-2 mt-lg-0" href="#">
+            <h1>New world <i class="fas fa-globe-americas"></i></h1>
+          </a>
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link" href=index.html>Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href=index.html>Promociones</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href=Register.html>registrarse</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href=api.html>Cotización dolar</a>
+            </li>
+          </ul>
+        </div>
+        <div class="dropdown">
+          <a class="text-reset me-3 dropdown-toggle hidden-arrow" href="#" id="navbarDropdownMenuLink" role="button"
+            data-mdb-toggle="dropdown" aria-expanded="false">
+            <i class="fas fa-bell"></i>
+          </a>
+          <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink">
+            <li>
+              <a class="dropdown-item" href="#">Some news</a>
+            </li>
+            <li>
+              <a class="dropdown-item" href="#">Another news</a>
+            </li>
+            <li>
+              <a class="dropdown-item" href="#">Something else here</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      </div>
+    </nav>
+  </header>
+
+  <div class="container-iframe" style="margin-top: 20px;">
+    <iframe width="1271" height="715" src="https://www.youtube.com/embed/IRM5APN8tU4"
+      title="🎵 Música para comprar compulsivamente - Shopping music🎵" frameborder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+      allowfullscreen></iframe>
+  </div>
+
+
   <div class="site-container">
     <div class="article-container">
-        <article class="article-card">
-            <figure class="article-image">
-                <img src="/Image/ImgProductos/1.jpeg"
-                /> 
-            </figure>
-            <div class="article-content">
-                <h1 class="card-category">Categiria producto 1</h1>
-                <h3 class="card-title">Descripcion Producto 1 </h3>
-                <p class= "card-excerpt">
-                    Texto descriptivo producto 1
-                </p>
-                <div class="Box-price">
-                  AQUI VA EL PRECIO Producto 1
-                  <div class="Box-add-to-cart">
-                    <button class="add-product-to-cart">
-                      Agregar al carrito
-                    </button>
-                  </div>
-                </div>
-            </div>
-        </article>
-        <article class="article-card">
-            <figure class="article-image">
-                <img src="/Image/ImgProductos/2.jpeg"/> 
-            </figure>
-            <div class="article-content">
-                <h1 class="card-category">Categiria producto 2</h1>
-                <h3 class="card-title"> Descripcion Producto 2 </h3>
-                <p class= "card-excerpt">
-                   texto descriptivo producto 2
-                </p>
-                <div class="Box-price">
-                  AQUI VA EL PRECIO
-                  <div class="Box-add-to-cart">
-                    <button class="add-product-to-cart">
-                      Agregar al carrito
-                    </button>
-                  </div>
-                </div>
-            </div>
-        </article>
+      <!-- Productos -->
     </div>
+  </div>
+
+
+  <div id="table-container">
+    <h4 id="titulo-carrito">Carrito de Compras</h4>
+    <table id="carrito">
+      <thead>
+        <tr>
+          <th>Producto</th>
+          <th>Precio</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- productos agregados al carrito -->
+      </tbody>
+      <tfoot>
+        <tr>
+          <td>Total:</td>
+          <td id="total">0.00</td>
+        </tr>
+      </tfoot>
+    </table>
   </div>
 </body>
 
-<footer>
-  <a href="https://www.twitter.com/" target="_bank"><i class="fab fa-twitter"></i></a>
-  <a href="https://www.linkedin.com/" target="_bank"><i class="fab fa-linkedin"></i></a>
-  <a href="https://www.instagram.com/" target="_bank"><i class="fab fa-instagram"></i></a>
-  <a href="https://www.twitch.tv/" target="_bank"><i class="fab fa-twitch"></i></a>
-  <a href="https://www.facebook.com/" target="_bank"><i class="fab fa-facebook"></i></a>
-  <a href="https://www.pinterest.com" target="_bank"><i class="fab fa-pinterest"></i></a>
-  <p>Fabricio Giribone - derechos reservados @2023</p>
-</footer>
 
+
+
+<footer class="text-center text-white" style="background-color: #f1f1f1;">
+  <div class="container pt-4">
+    <section class="mb-4">
+      <a class="btn btn-link btn-floating btn-lg text-dark m-1" href="https://www.facebook.com/" role="button"
+        data-mdb-ripple-color="dark"><i class="fab fa-facebook-f"></i></a>
+      <a class="btn btn-link btn-floating btn-lg text-dark m-1" href="https://www.twitter.com/" role="button"
+        data-mdb-ripple-color="dark"><i class="fab fa-twitter"></i></a>
+      <a class="btn btn-link btn-floating btn-lg text-dark m-1" href="https://www.google.com/" role="button"
+        data-mdb-ripple-color="dark"><i class="fab fa-google"></i></a>
+      <a class="btn btn-link btn-floating btn-lg text-dark m-1" href="https://www.instagram.com/" role="button"
+        data-mdb-ripple-color="dark"><i class="fab fa-instagram"></i></a>
+      <a class="btn btn-link btn-floating btn-lg text-dark m-1" href="https://www.linkedin.com/" role="button"
+        data-mdb-ripple-color="dark"><i class="fab fa-linkedin"></i></a>
+      <a class="btn btn-link btn-floating btn-lg text-dark m-1" href="https://github.com/" role="button"
+        data-mdb-ripple-color="dark"><i class="fab fa-github"></i></a>
+    </section>
+  </div>
+  <div class="text-center text-dark p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+    Fabricio Giribone - © 2023 Copyright
+  </div>
+</footer>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script src="/js/main.js"></script>
+
 </html>

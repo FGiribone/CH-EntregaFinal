@@ -5,37 +5,35 @@ botonValidar.addEventListener("click", validarFormulario);
 password1.addEventListener("input", validarContraseñas);
 password2.addEventListener("input", validarContraseñas);
 
-
 // Función de validación del formulario
 
 function validarFormulario() {
     event.preventDefault(); // evito el envio del formulario automaticamente
-    
+
     // variable de control de flujo
-    okFormulario = false;
+    okFormulario = true;
 
     okFormulario = validarCamposVacios();
 
     console.log("valor de validación de vuelto por validarCamposVacios()" + okFormulario)
-   
-    if(okFormulario){
-        validacion =validarCorreoElectronico();
+
+    if (okFormulario) {
+        okFormulario = validarCorreoElectronico();
     }
 
     console.log("valor de validación de vuelto por validarCorreoElectronico()" + okFormulario)
-    
-    if(okFormulario){
-        validacion = validarAreaYTelefono();
+
+    if (okFormulario) {
+        okFormulario = validarAreaYTelefono();
     }
     console.log("valor de validación de vuelto por validarAreaYTelefono()" + okFormulario)
-    
-    if(okFormulario){
+
+    if (okFormulario) {
         okFormulario = validarContraseñas();
     }
     console.log("valor de validación de vuelto por validarContraseñas()" + okFormulario)
-    
-    if(okFormulario){
-        alert("¡Gracias!");
+
+    if (okFormulario) {
         nuevoCliente();
     }
 }
@@ -89,10 +87,10 @@ function validarCorreoElectronico() {
     } else {
         // El email es incorrecto
         campoErrorEmail.textContent = "Email incorrecto, formato deseado nombredeusuario@dominio.com"; // Muestra un mensaje de error
-        validacionEmail  = false;
+        validacionEmail = false;
         return false;
     }
-return validacionEmail;
+    return validacionEmail;
 }
 
 function validarAreaYTelefono() {
@@ -106,7 +104,7 @@ function validarAreaYTelefono() {
     campoTelefono.textContent = "";
 
     // Valido campo "areaTelefono" según longitud -> https://www.argentina.gob.ar/pais/codigo-telefonia
-    
+
     if (areaInput.value.length < 2 || areaInput.value.length > 4) {
         campoAreaTelefono.textContent = "El área debe tener al menos 2 dígitos";
         validacionTelefono = false;
@@ -178,21 +176,19 @@ function validarContraseñas() {
     return !isInvalid; // Devuelve true si no hay errores, false si hay algún error
 }
 
-function nuevoCliente(){
+function nuevoCliente() {
     const nombre = document.querySelector("#nombre").value;
     const apellido = document.querySelector("#apellido").value;
     const email = document.querySelector("#email").value;
     const areaTelefono = document.querySelector("#areaTelefono").value;
     const telefono = document.querySelector("#telefono").value;
     const password = document.querySelector("#password1").value;
-    
-    // creo el objeto y su numero de cuenta 
-    const nuevoCliente = new Cliente(null,nombre,apellido,email,areaTelefono,telefono,password);    
-    nuevoCliente.cuenta = nuevoCliente.altaNroCuenta();
 
-    // por último lo arreglo al array de clientes.
-
-    nuevoCliente.grabarClientes(nuevoCliente);
-    nuevoCliente.mostrarClientes();
+    const nuevoCliente = new Cliente(null, nombre, apellido, email, areaTelefono, telefono, password);
+    // Ahora, puedes guardar esta instancia en un arreglo de clientes
+    nuevoCliente.grabarClientesEnStorage(nuevoCliente);
+    // observo los datos internos
+    console.log(nuevoCliente.toString());
+    // muestro mensaje al cliente
+    nuevoCliente.mostrarDatosAlCliente();
 }
-

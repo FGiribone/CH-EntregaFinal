@@ -57,7 +57,7 @@
     "idCategoria": 2,
     "nombreCategoria": "Indumentaria",
     "codigo": 7,
-    "descripcion": "PANTALON",
+    "descripcion": "Pantalon",
     "precio": 11999.99,
     "stock": 100,
     "urlImagen": "./Image/ImgProductos/7.jpeg"
@@ -66,18 +66,18 @@
     "idCategoria": 2,
     "nombreCategoria": "Indumentaria",
     "codigo": 8,
-    "descripcion": "REMERA",
+    "descripcion": "Remera",
     "precio": 5999.99,
     "stock": 100,
-    "urlImagen": "./Image/ImgProductos/8.jpeg"
+    "urlImagen": "./image/ImgProductos/8.jpeg"
   },
   {
     "idCategoria": 3,
     "nombreCategoria": "Hogar",
     "codigo": 9,
-    "descripcion": "SET DE ESCOBA",
+    "descripcion": "Set de escoba",
     "precio": 7999.99,
     "stock": 99,
-    "urlImagen": "./Image/ImgProductos/9.jpeg"
+    "urlImagen": "./image/ImgProductos/9.jpeg"
   }
 ]

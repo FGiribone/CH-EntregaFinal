@@ -5,10 +5,12 @@
     background-size: cover
 }
 
+
+
+
 /***********************************************
 /************** NAVBAR AND FOOTER **************/
 /***********************************************/
-
 nav, footer{
     display: flex;
     justify-content: center;
@@ -19,6 +21,16 @@ nav, footer{
     border-style:solid;
     border-radius: 20px;
 }
+
+.cart-icon {
+    top: 0;
+    right: 0;
+    padding: 10px;
+  }
+  
+.cart-icon i {
+    font-size: 24px;
+  }
 
 footer{
     color: grey;
@@ -99,8 +111,6 @@ body{
     transition: background 0.3s ease-in-out;
 }
 
-
-
 .site-container{
     margin: 2rem auto;
     max-width: calc(100% - 80px);
@@ -113,6 +123,7 @@ body{
 }
 
 .article-image{
+    text-align: center;
     margin: 0;
     padding: 0;
     overflow: hidden;
@@ -141,6 +152,7 @@ body{
 }
 
 .article-content .card-category{
+    text-align:center;
     font-size: 0.875rem;
     text-transform: uppercase;
     letter-spacing: 0.1em;
@@ -149,9 +161,17 @@ body{
     display: block;    
 }
 
-.article-content .card-title {
+.article-content {
+    text-align:center;
     margin: 1rem 0;
     color: #22447b;
+}
+
+
+.card-price{
+    text-align:center;
+    font-weight: 600;
+    color: #22447b;   
 }
 
 .article-content .card-excerpt{
@@ -160,44 +180,110 @@ body{
     color: #345b9b;
     margin: 0;
 }
-
 a{
     text-decoration: none;
 }
 
 
-/************************************/
-/********* Animación  *********/
-/************************************/
 
-.slider{
-    width: 95%;
-    margin: auto;
-    
-}
+/***********************************************/
+/************ Estilos tabla de API *************/
+/***********************************************/
 
-.slider ul{
-    display: flex;
-    padding: 0;
-    width: 100%;
-
-    animation: cambio 100s infinite;
-    animation-timing-function: ease-in;
-}
-
-.slider li{
-    width: 100%;
-    list-style: none;
-}
-
-.slider img{
-    width: 80%;
-    border-radius: 5%;
-}
-
-h1,h3,p{
+.titulo {
     text-align: center;
+    color: #FF69B4;
+    font-size: 28px;
 }
+body {
+    font-family: Arial, sans-serif;
+}
+.container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+.cuadro {
+    width: 300px;
+    border: 2px solid #FF69B4;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 10px;
+}
+.cuadro h2 {
+    color: #FF69B4;
+    font-size: 24px;
+}
+.cuadro p {
+    font-size: 16px;
+}
+.cuadro p span {
+    font-weight: bold;
+    color: #22447b;
+}
+
+
+
+/***********************************************/
+/****** Estilos para la tabla de productos *****/
+/***********************************************/
+
+#table-container {
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+  }
+  
+
+  #carrito {
+    max-width: 80%;
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 16px;
+    margin: 0 auto;
+  }
+  
+  #carrito thead {
+    background-color: #333;
+    color: #fff;
+  }
+  
+  #carrito th, #carrito td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  #carrito tbody tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }
+  
+  #carrito tbody tr:hover {
+    background-color: #ddd;
+  }
+  
+ 
+  #carrito th {
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+  
+ 
+  #carrito td:nth-child(2) {
+    font-weight: bold;
+  }
+  
+  #carrito tbody tr:nth-child(odd) {
+    background-color: #e0e0e0;
+  }
+
+  #titulo-carrito {
+    background-image: linear-gradient(to right, #433d96, #ff33cc);
+    -webkit-background-clip: text;
+    color: transparent;
+  
+    padding: 10px;
+  }
 
 @keyframes cambio{
     0% {margin-left: 0;}
@@ -218,6 +304,94 @@ h1,h3,p{
     95% {margin-left: -500%;}
     100%{margin-left: -500%;}
 }
+
+/************************************/
+/*********** FORMULARIO  ************/
+/************************************/
+
+.titulo-formulario {
+    text-align: center;
+    color: #2e2e2e;
+    font-size: 28px;
+}
+
+.body-formulario {
+    background-image: url('/Image/html.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.formulario-personalizado {
+    background-color: rgba(255, 255, 255, 0.8);
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.formulario-personalizado .form-group {
+    margin-bottom: 20px;
+}
+
+.formulario-personalizado label {
+    font-weight: bold;
+}
+
+.formulario-personalizado input[type="text"],
+.formulario-personalizado input[type="number"],
+.formulario-personalizado input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.formulario-personalizado .error {
+    color: red;
+}
+
+.formulario-personalizado .validacion {
+    color: green;
+}
+
+.formulario-personalizado .small-text {
+    font-size: 12px;
+}
+
+.formulario-personalizado ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.formulario-personalizado li.invalid {
+    color: red;
+}
+
+.formulario-personalizado li.valid {
+    color: green;
+}
+
+.formulario-personalizado #botonValidar {
+    width: 50%;
+    margin-top: 20px;
+}
+
+#botonValidar {
+    background-color: #c07ff2;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#botonValidar:hover {
+    background-color: #0056b3;
+}
+
 
 /************************************/
 /*********** MEDIA QUERIES **********/

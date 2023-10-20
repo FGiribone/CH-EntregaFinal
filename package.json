@@ -1,0 +1,20 @@
+{
+  "name": "fabri",
+  "version": "1.0.0",
+  "description": "primer package",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "fabri"
+  ],
+  "author": "fabricio",
+  "license": "ISC",
+  "dependencies": {
+    "luxon": "^3.4.3",
+    "sweet-alert": "^2.0.5",
+    "sweetalert2": "^11.7.32",
+    "toastify": "^2.0.1"
+  }
+}
