@@ -2,13 +2,15 @@ cargarProductosAlFront();
 const carrito = [];
 
 
-function cargarProductosAlFront() {
-    fetch('Data/Products.json')
-        .then(response => response.json())
-        .then(data => {
-            data.forEach(producto => {
+async function cargarProductosAlFront() {
+    try {
+        const response = await fetch('Data/Products.json');
+        const data = await response.json();
 
-                const articleContainer = document.querySelector('.article-container');
+        const articleContainer = document.querySelector('.article-container');
+
+        data.forEach(producto => {
+            try {
                 const article = document.createElement('article');
                 article.classList.add('article-card');
                 const figure = document.createElement('figure');
@@ -32,22 +34,20 @@ function cargarProductosAlFront() {
                 addToCartButton.textContent = 'Agregar al carrito';
                 addToCartButton.classList.add('add-product-to-cart');
 
-                addToCartButton.addEventListener('click', () => {
-                    reservaStock(producto.descripcion)
-                        .then((reservaExitosa) => {
-                            if (reservaExitosa) {
-                                console.log("producto agregado, código del producto: " + producto.codigo);
-                                guardarProductoLocalStorage(producto);
-                                carrito.push(producto);
-                                actualizarCarrito();
-                            }
-                            else {
-                                console.log('Reserva cancelada');
-                            }
-                        })
-                        .catch((error) => {
-                            console.error(error);
-                        });
+                addToCartButton.addEventListener('click', async () => {
+                    try {
+                        const reservaExitosa = await reservaStock(producto.descripcion);
+                        if (reservaExitosa) {
+                            console.log("producto agregado, código del producto: " + producto.codigo);
+                            guardarProductoLocalStorage(producto);
+                            carrito.push(producto);
+                            actualizarCarrito();
+                        } else {
+                            console.log('Reserva cancelada');
+                        }
+                    } catch (error) {
+                        console.error('Error al reservar el producto:', error);
+                    }
                 });
 
                 content.appendChild(category);
@@ -57,15 +57,18 @@ function cargarProductosAlFront() {
                 article.appendChild(figure);
                 article.appendChild(content);
                 articleContainer.appendChild(article);
-
-                const productosJSON = JSON.stringify(data);
-                sessionStorage.setItem('Productos', productosJSON);
-            });
-        })
-        .catch(error => {
-            console.error('Error al cargar el archivo JSON:', error);
+            } catch (error) {
+                console.error('Error al procesar un producto:', error);
+            }
         });
+        const productosJSON = JSON.stringify(data);
+        sessionStorage.setItem('Productos', productosJSON);
+
+    } catch (error) {
+        console.error('Error al cargar el archivo JSON:', error);
+    }
 }
+
 
 function guardarProductoLocalStorage(producto) {
     const carrito = JSON.parse(localStorage.getItem('carrito')) || [];
