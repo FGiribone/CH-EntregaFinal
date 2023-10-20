@@ -25,6 +25,7 @@ function validarFormulario() {
     }
 
     if (okFormulario) {
+        console.log("form ok -> " + okFormulario)
         nuevoCliente();
     }
 }
@@ -57,7 +58,6 @@ function validarCamposVacios() {
             validacionVacios = false;
         }
     }
-    console.log("dentro de vacio validacion vale: " + validacionVacios)
     return validacionVacios;
 }
 
@@ -76,7 +76,6 @@ function validarCorreoElectronico() {
         validacionEmail = false;
         return false;
     }
-    return validacionEmail;
 }
 
 function validarAreaYTelefono() {
